@@ -1,0 +1,79 @@
+.flex-container{
+   
+    height: 500px;
+ 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  object-fit: cover;
+ 
+}
+.foto{
+    
+    
+    margin-right: 50px;
+}
+.Descripcion{
+    padding-top: 280px;
+    font-size: 15px;
+    font-weight: bold;
+   display: flex;
+   flex-direction: column;
+   
+    margin-right: 50px;
+}
+.desc{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-top: 1px solid #999999;
+}
+
+.m{
+    font-weight:600;
+}
+.desc3{
+    padding-top: 10px;
+    border-top: 1px solid #999999;
+}
+.Opciones{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 150px;
+    width: 200px;
+    height: 500px;
+    background-color: white;
+    margin-right: 50px;
+    border: 1px solid #999999;
+    border-radius: 10px;
+    
+  
+}
+.precio{
+    margin: 10px;
+    font-size: 25px;
+   
+}
+.op{
+    border-radius: 10px;
+    width:70px;
+    height:44px;
+    border:1px solid white; 
+    background-color: #febd69;
+    width: 170px;
+}
+.op:hover{
+    cursor: pointer;
+}
+.Disponible{
+    margin: 5px;
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+}

@@ -1,0 +1,71 @@
+body{
+    font-family: "Amazon Ember", Arial, sans-serif;
+}
+.form_login{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
+    text-align: center  ;
+    padding: 20px 26px !important;
+    
+}
+
+.contenedor{
+    width: 300px;
+    border-radius: 8px;
+    border: 1px #ddd solid;
+    padding: 30px;
+
+}
+
+h1{
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+}
+input{
+    width: 100%;
+    font-family:-apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    padding: 6px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.option{
+    width: 100%;
+    font-family:-apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    padding: 6px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.button{
+    width: 100%;
+    height: 35px;
+    background: #00a82d;
+    border: none;
+    color: white;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+
+}
+.button:hover{
+    background-color: #358239;
+    cursor: pointer;    
+}
+.separator{
+    border-top: 1px solid #03569b;
+    margin: 1.6rem 0;
+}
+label{
+    display: block; /* Hace que cada label esté en su propia línea */
+    text-align: left; /* Alinea el texto de los labels a la izquierda */
+
+}

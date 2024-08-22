@@ -1,0 +1,68 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+.buscador_catalogo {
+    display: flex;
+    height: 600px;
+    background-color: #f3f8f9;
+   
+    border-top: solid;
+    border-bottom: solid;
+    border-color: #41414145;
+    border-width: .5px;
+}
+.buscador_catalogo img{
+    margin: 30px 0 0 50px;
+}
+.conteiner{
+    width: 800px;
+    margin: 0 auto;
+    border-radius: 0%;
+    border: 0;
+    margin: 150px 300px 200px 200px;
+}
+.conteiner h1{
+    margin: 20px 0 20px 0;
+}
+.buscador_catalogo input{
+    width: 100%;
+    height: 20px;
+    padding: 5px 0 2px 10px;
+}
+.consejos{
+    display: flex;
+}
+.footer-catalogo h1{
+    margin-top: 50px;
+    margin-left: 80px;
+}
+.card-f{
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 80px;
+}
+
+.card-f h2{
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(39, 73, 100);
+}
+
+.card-f label{
+    font-size: 14px;
+    color: rgb(102, 102, 102);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.card-f a{
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(49, 130, 123);
+  
+
+}
+.card-f a:hover{
+    cursor: pointer;
+}

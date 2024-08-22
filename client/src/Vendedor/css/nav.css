@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+nav{
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    background-color: #232f3e;
+
+}
+.Menu_botones{
+   
+ 
+    margin: 10px 20px 10px 20px;
+    
+}
+.Menu_botones:hover{
+    border-style: solid;
+    border-color: white;
+}
+.botones_a{
+    color: inherit; /* Hereda el color del texto del elemento padre */
+    color: white;
+    text-decoration: none; /* Elimina el subrayado o delineado */
+    font-size: 18px;
+    
+}
