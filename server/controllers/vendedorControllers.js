@@ -9,7 +9,7 @@ const db = mysql.createConnection({
 const createProduct = (req,resp)=>{
     const op = "I"; // Operación a realizar (I para inserción)
     const id = null; 
-    const categoria_id = 1;
+    const categoria_id = req.body.categoria;
     const id_user = req.body.id;
     const img =null;
     const nombre = req.body.nombre;
@@ -82,6 +82,7 @@ const updateProducts = (req,resp)=>{
     const op = "U"; // Operación a realizar (I para inserción)
     const id = req.body.id_product; 
     const categoria_id = req.body.categoria;
+
     const id_user = req.body.id;
     const img = null;
     const nombre = req.body.nombre;
@@ -95,7 +96,7 @@ const updateProducts = (req,resp)=>{
         }
         const products = result[0]; // Los resultados suelen estar en la primera posición del array devuelto
         // Envío de los resultados al cliente
-        resp.send({ message: "Productos obtenidos con éxito", data: products });
+        resp.send({ message: "success"});
        
     });
 }; 

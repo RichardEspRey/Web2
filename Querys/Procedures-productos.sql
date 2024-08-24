@@ -51,7 +51,7 @@ declare resp INT; /*variable a devolver para manejo de respuestas */
 	End If;
     
 	 If op = 'S' then /* SELECT ESPECIFICO  ID*/
-			Select p.img,p.nombre,p.precio,p.cantidad,p.descrip,p.inventario, c.Nombre
+			Select p.img,p.nombre,p.precio,p.cantidad,p.descrip,p.inventario, c.Nombre as categoria
 			from productos p
 			LEFT JOIN categorias c
 			on p.categoria_id = c.categoria_id
@@ -83,3 +83,10 @@ drop procedure pProductos;
 select * from users;
 select * from Productos;
 CALL pProductos("S", null, null, 2, null, null, null, null, null, null);
+
+
+Select p.img,p.nombre,p.precio,p.cantidad,p.descrip,p.inventario, c.Nombre
+			from productos p
+			LEFT JOIN categorias c
+			on p.categoria_id = c.categoria_id
+			where p.productos_ID = 3 ;

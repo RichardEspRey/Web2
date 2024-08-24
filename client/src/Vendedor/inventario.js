@@ -48,7 +48,7 @@ const Inventario = () => {
             <DataTable
                     columns={columns}
                     data={products}
-                />
+            />
         </div>
     </div>
     );

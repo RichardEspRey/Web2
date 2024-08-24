@@ -30,6 +30,6 @@ declare resp INT; /*variable a devolver para manejo de respuestas */
 
 End; $$
 Delimiter ;
-call pCategorias('I',null,2,'Juguetes');
+call pCategorias('I',null,1,'Juguetes');
 call pCategorias('All',null,null,null);
 

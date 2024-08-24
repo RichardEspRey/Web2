@@ -3,6 +3,8 @@ import "./css/addProd.css";
 import Cookies from 'js-cookie';
 import Axios from "axios";
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const EditProduct = () => {
     const { id } = useParams();
@@ -15,12 +17,14 @@ const EditProduct = () => {
     const [cantidad, setCant] = useState("");
     const [desc, setDesc] = useState("");
     const [invent, setInvent] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
                 const response = await Axios.post('http://localhost:3001/api/users/getOneProduct', { id: id });
                 const product = response.data.data;
+                console.log(product);
                 setNombre(product[0].nombre);
                 setCategoria(product[0].categoria);
                 setPrecio(product[0].precio);
@@ -35,6 +39,8 @@ const EditProduct = () => {
 
         fetchProducts();
     }, [id]);
+
+  
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -58,9 +64,19 @@ const EditProduct = () => {
             desc: desc,
             invent: invent
         }).then(response => {
-            if (response.data.id == 1) {
-                alert(response.data.message);
-                window.location.reload();
+                console.log(response.data.message);
+            if (response.data.message == "success") {
+                Swal.fire({
+                    title: "Exito",
+                    text: "Producto actualizado con exito",
+                    icon: "success",
+                    confirmButtonText: 'Ok'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      // Recargar la página
+                      navigate("/inventario");
+                    }
+                  });
             } else {
                 alert(response.data.message);
             }
@@ -70,7 +86,7 @@ const EditProduct = () => {
     };
 
     const clear = () => {
-        window.location.reload();
+        navigate("/inventario");
     };
 
     if (isLoading) {
@@ -95,25 +111,24 @@ const EditProduct = () => {
                 </div>
                 <div className='group-labels'>
                     <label>Categoria</label>
-                    <select className="option" name="Tipo" onChange={(event) => { setCategoria(event.target.value); }} value={categoria}>
-                        <option value="Electronica">Electronica</option>
-                        <option value="Ferreteria">Ferreteria</option>
+                    <select className="option" name="Tipo" onChange={(event) => { setCategoria(event.target.value); }} >
+                        {categoria}
                     </select>
                 </div>
 
                 <div className='group-labels'>
                     <label>Precio $</label>
-                    <input className="Elements" type="text" id="Precio" onChange={(event) => { setPrecio(event.target.value); }} value={precio}></input>
+                    <input className="Elements" type="Number" id="Precio" onChange={(event) => { setPrecio(event.target.value); }} value={precio}></input>
                 </div>
 
                 <div className='group-labels'>
                     <label>Cantidad</label>
-                    <input className="Elements" type="text" id="Cantidad" onChange={(event) => { setCant(event.target.value); }} value={cantidad}></input>
+                    <input className="Elements" type="Number" id="Cantidad" onChange={(event) => { setCant(event.target.value); }} value={cantidad}></input>
                 </div>
 
                 <div className='group-labels'>
                     <label>No. piezas</label>
-                    <input className="Elements" type="text" id="Invent" onChange={(event) => { setInvent(event.target.value); }} value={invent}></input>
+                    <input className="Elements" type="Number" id="Invent" onChange={(event) => { setInvent(event.target.value); }} value={invent}></input>
                 </div>
 
                 <div className='group-labels'>
