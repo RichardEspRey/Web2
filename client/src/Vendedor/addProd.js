@@ -66,7 +66,7 @@ function AddProd(){
           icon: "error"
         });
       }else{
-        
+  
         Axios.post("http://localhost:3001/api/users/registerProduct",{
           id: sessionId,
           nombre:nombre,
@@ -131,7 +131,7 @@ function AddProd(){
                 </div>
                 <div className='group-labels'>
                     <label>Categoria</label>
-                    <select className ="option" name="Tipo" onSelect={(event)=>{setCategoria(event.target.value);}}>
+                    <select className ="option" name="Tipo" onChange ={(event)=>{setCategoria(event.target.value);}}>
                       {userElements}
                     </select>
                 </div>

@@ -54,3 +54,5 @@ select * from categorias;
 select * from ventas;
 
 select * from productos;
+
+truncate table productos;

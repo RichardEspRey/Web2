@@ -11,16 +11,18 @@ const createProduct = (req,resp)=>{
     const id = null; 
     const categoria_id = req.body.categoria;
     const id_user = req.body.id;
-    const img =req.body.image;
+    const img =req.body.img;
+    const base64Data = img.replace(/^data:image\/\w+;base64,/, "");
+    const buffer = Buffer.from(base64Data, 'base64');
     const nombre = req.body.nombre;
     const precio = req.body.precio;
     const cantidad = req.body.cantidad;
     const descripcion = req.body.desc;
     const inventario = req.body.invent;
-    console.log()
-    db.query('CALL pProductos(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [op, id,categoria_id,id_user,img, nombre, precio, cantidad, descripcion, inventario], (err, result) =>{
+
+    db.query('CALL pProductos(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [op, id,categoria_id,id_user,buffer, nombre, precio, cantidad, descripcion, inventario], (err, result) =>{
         if (err) {
-            return res.status(500).send(err);
+            return resp.status(500).send(err);
         }
         if(result[0][0].resp === 1){
             resp.send({message:"Empleado registrado con éxito",id:1});// Envio de respuesta del servidor a mi componente
@@ -45,7 +47,7 @@ const getProducts = (req,resp)=>{
     const inventario = null;
     db.query('CALL pProductos(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [op, id,categoria_id,id_user,img, nombre, precio, cantidad, descripcion, inventario], (err, result) =>{
         if (err) {
-            return res.status(500).send(err);
+            return resp.status(500).send(err);
         }
         const products = result[0]; // Los resultados suelen estar en la primera posición del array devuelto
         // Envío de los resultados al cliente
@@ -68,7 +70,7 @@ const getOneProduct = (req,resp)=>{
     console.log("funcion de obtener un producto id: "+id)
     db.query('CALL pProductos(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [op, id,categoria_id,id_user,img, nombre, precio, cantidad, descripcion, inventario], (err, result) =>{
         if (err) {
-            return res.status(500).send(err);
+            return resp.status(500).send(err);
         }
         const products = result[0]; // Los resultados suelen estar en la primera posición del array devuelto
         // Envío de los resultados al cliente
@@ -92,7 +94,7 @@ const updateProducts = (req,resp)=>{
     const inventario = req.body.invent;
     db.query('CALL pProductos(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [op, id,categoria_id,id_user,img, nombre, precio, cantidad, descripcion, inventario], (err, result) =>{
         if (err) {
-            return res.status(500).send(err);
+            return resp.status(500).send(err);
         }
         const products = result[0]; // Los resultados suelen estar en la primera posición del array devuelto
         // Envío de los resultados al cliente
@@ -107,7 +109,7 @@ const getCategories = (req,resp)=>{
 
     db.query('CALL pCategorias(?, ?, ?, ?)', [op, null, null, null], (err, result) =>{
         if (err) {
-            return res.status(500).send(err);
+            return resp.status(500).send(err);
         }
         const Categories = result[0]; // Los resultados suelen estar en la primera posición del array devuelto
         // Envío de los resultados al cliente

@@ -30,6 +30,8 @@ declare resp INT; /*variable a devolver para manejo de respuestas */
 
 End; $$
 Delimiter ;
-call pCategorias('I',null,1,'Juguetes');
+
+select * from categorias;
+call pCategorias('I',null,1,'electronica');
 call pCategorias('All',null,null,null);
 
