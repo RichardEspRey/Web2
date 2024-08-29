@@ -70,6 +70,7 @@ function AddProd(){
         Axios.post("http://localhost:3001/api/users/registerProduct",{
           id: sessionId,
           nombre:nombre,
+          img:selectedImage,
           categoria:categoria,
           precio:precio,
           cantidad:cantidad,

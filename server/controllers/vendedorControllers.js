@@ -11,7 +11,7 @@ const createProduct = (req,resp)=>{
     const id = null; 
     const categoria_id = req.body.categoria;
     const id_user = req.body.id;
-    const img =null;
+    const img =req.body.image;
     const nombre = req.body.nombre;
     const precio = req.body.precio;
     const cantidad = req.body.cantidad;
