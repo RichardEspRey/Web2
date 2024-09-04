@@ -84,3 +84,17 @@
     font-size: 16px;
     cursor:pointer;
 }
+
+.btn_edit {
+    background-color: #4CAF50; /* Color de fondo */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Alinear texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar en línea */
+    font-size: 16px; /* Tamaño de la fuente */
+    margin: 4px 2px; /* Margen alrededor del botón */
+    cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+    border-radius: 8px; /* Bordes redondeados */
+  }

@@ -28,13 +28,14 @@ const Inventario = () => {
 
     const columns = [
         { name: 'ID', selector: row => row.productos_ID, sortable: true, width: '70px' },
+        { name: 'Imagen', selector: row => row.img, sortable: true, width: '200px' },
         { name: 'Nombre', selector: row => row.nombre, sortable: true, width: '200px' },
         { name: 'Precio', selector: row => row.precio, sortable: true, width: '100px' },
         { name: 'Cantidad', selector: row => row.cantidad, sortable: true, width: '100px' },
         { name: 'Descripción', selector: row => row.descrip, sortable: true, width: '250px' },
         { name: 'Inventario', selector: row => row.inventario, sortable: true, width: '150px' },
         { name: 'Categoria', selector: row => row.Categoria, sortable: true, width: '150px' },
-        { name: 'Acciones', cell: row => (<Link to={`/editProd/${row.productos_ID}`}><button>Editar</button></Link>
+        { name: 'Acciones', cell: row => (<Link to={`/editProd/${row.productos_ID}`}><button className='btn_edit'>Editar</button></Link>
             ),
             ignoreRowClick: true,
             allowOverflow: true,
