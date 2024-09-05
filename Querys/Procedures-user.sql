@@ -42,7 +42,7 @@ End; $$
 Delimiter ;
 
 Drop procedure pUser;
-Call pUser('I',1,'Ricardo','2','2','Vendedor');
+Call pUser('I',1,'Ricardo','1','1','Comprador');
 Call pUser('S',null,null,'2','2',null);
 truncate Users;
 Select * FROM Users ;

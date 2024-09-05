@@ -82,7 +82,7 @@ drop procedure pProductos;
 
 select * from users;
 select * from Productos;
-CALL pProductos("S", null, null, 2, null, null, null, null, null, null);
+CALL pProductos("All", null, null, 1, null, null, null, null, null, null);
 
 
 Select p.img,p.nombre,p.precio,p.cantidad,p.descrip,p.inventario, c.Nombre

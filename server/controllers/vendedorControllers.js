@@ -49,9 +49,18 @@ const getProducts = (req,resp)=>{
         if (err) {
             return resp.status(500).send(err);
         }
-        const products = result[0]; // Los resultados suelen estar en la primera posición del array devuelto
+        const products = result[0]; // Los productos están en la primera posición del array devuelto
+
+        // Procesar cada producto para convertir la imagen en base64
+        const processedProducts = products.map(product => {
+            if (product.img) {
+                // Convertir imagen binaria a base64
+                product.img = `data:image/jpeg;base64,${Buffer.from(product.img).toString('base64')}`;
+            }
+            return product;
+        });
         // Envío de los resultados al cliente
-        resp.send({ message: "Productos obtenidos con éxito", data: products });
+        resp.send({ message: "Productos obtenidos con éxito", data: processedProducts });
        
     });
 }; 
@@ -67,15 +76,19 @@ const getOneProduct = (req,resp)=>{
     const cantidad = null;
     const descripcion = null;
     const inventario = null;
-    console.log("funcion de obtener un producto id: "+id)
     db.query('CALL pProductos(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [op, id,categoria_id,id_user,img, nombre, precio, cantidad, descripcion, inventario], (err, result) =>{
         if (err) {
             return resp.status(500).send(err);
         }
-        const products = result[0]; // Los resultados suelen estar en la primera posición del array devuelto
-        // Envío de los resultados al cliente
-        console.log(products);
-        resp.send({ message: "Producto obtenido con éxito", data: products });
+        const products = result[0]; //se selecciona toda la linea con los resultados 
+        const processedProducts = products.map(product => {
+            if (product.img) {
+                // Convertir imagen binaria a base64
+                product.img = `data:image/jpeg;base64,${Buffer.from(product.img).toString('base64')}`;
+            }
+            return product;
+        });
+        resp.send({ message: "Producto obtenido con éxito", data: processedProducts });
        
     });
 }; 

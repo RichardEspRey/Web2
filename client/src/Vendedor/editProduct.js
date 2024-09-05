@@ -10,6 +10,7 @@ const EditProduct = () => {
     const { id } = useParams();
     const [isLoading, setIsLoading] = useState(true);
     const [selectedImage, setSelectedImage] = useState(null);
+    const [img,setImg] =  useState("");
     const [categoria, setCategoria] = useState("");
     const sessionId = Cookies.get('session_UserID');
     const [nombre, setNombre] = useState("");
@@ -24,7 +25,7 @@ const EditProduct = () => {
             try {
                 const response = await Axios.post('http://localhost:3001/api/users/getOneProduct', { id: id });
                 const product = response.data.data;
-                console.log(product);
+                setImg(product[0].img);
                 setNombre(product[0].nombre);
                 setCategoria(product[0].categoria);
                 setPrecio(product[0].precio);
@@ -96,6 +97,7 @@ const EditProduct = () => {
     return (
         <div className='producto'>
             <div className='contenedor-producto'>
+                <img  src={img} alt="Producto" style={{ width: '100px', height: '100px' }} ></img>
                 <h2>Editar producto</h2>
                 {selectedImage && (
                     <img src={selectedImage} alt="Selected" style={{ maxWidth: '200px', maxHeight: '200px' }} />

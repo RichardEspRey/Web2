@@ -2,7 +2,7 @@ import Cookies from 'js-cookie';
 export const verificarUsuario = () => {
     const sessionId = Cookies.get('session_UserID');
     if(sessionId != undefined){
-        console.log("Todo bien" + ` ID:${sessionId}`);
+        //console.log("Todo bien" + ` ID:${sessionId}`); era para ver que usuario estaba logueado
     }else{
         alert("Debe de iniciar sesion antes");
         window.location.replace('http://localhost:3000/login');
