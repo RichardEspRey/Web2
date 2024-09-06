@@ -4,6 +4,7 @@ import Axios from "axios";
 import bagImage from './icons/bag.png';
 import { Link } from "react-router-dom";
 import Cookies from 'js-cookie';
+import { MainFooter } from "../Components/mainFooter";
 function Form_login() {
   const [correo,setCorreo] = useState("");
   const [password,setPassword] = useState("");
@@ -65,7 +66,7 @@ return (
             
       
       </div>
-      
+      <MainFooter/>
   </div>
     
 
